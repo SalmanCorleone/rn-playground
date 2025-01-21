@@ -1,0 +1,10 @@
+{
+  "name": "rn-playground",
+  "slug": "rn-playground",
+  "android": {
+    "package": "com.samil_gerald.rnplayground"
+  },
+  "ios": {
+    "bundleIdentifier": "com.samil-gerald.rnplayground"
+  }
+}
