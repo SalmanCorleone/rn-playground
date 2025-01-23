@@ -1,10 +1,12 @@
 {
   "name": "rn-playground",
   "slug": "rn-playground",
+  "scheme": "rn-playground",
   "android": {
     "package": "com.samil_gerald.rnplayground"
   },
   "ios": {
     "bundleIdentifier": "com.samil-gerald.rnplayground"
-  }
+  },
+  "plugins": ["expo-router"]
 }
