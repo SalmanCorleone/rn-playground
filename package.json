@@ -1,9 +1,11 @@
 {
   "dependencies": {
     "@expo/metro-runtime": "~4.0.0",
+    "@shopify/restyle": "^2.4.4",
     "expo": "^52.0.16",
     "expo-constants": "~17.0.4",
     "expo-dev-client": "~5.0.10",
+    "expo-font": "~13.0.3",
     "expo-linking": "~7.0.4",
     "expo-router": "~4.0.17",
     "expo-status-bar": "~2.0.1",

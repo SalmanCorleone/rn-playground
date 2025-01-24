@@ -8,5 +8,5 @@
   "ios": {
     "bundleIdentifier": "com.samil-gerald.rnplayground"
   },
-  "plugins": ["expo-router"]
+  "plugins": ["expo-router", "expo-font"]
 }
