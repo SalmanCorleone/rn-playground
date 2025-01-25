@@ -1,12 +1,29 @@
 {
-  "name": "rn-playground",
-  "slug": "rn-playground",
-  "scheme": "rn-playground",
-  "android": {
-    "package": "com.samil_gerald.rnplayground"
-  },
-  "ios": {
-    "bundleIdentifier": "com.samil-gerald.rnplayground"
-  },
-  "plugins": ["expo-router", "expo-font"]
+  "expo": {
+    "name": "rn-playground",
+    "slug": "rn-playground",
+    "icon": "./assets/images/icon.png",
+    "scheme": "rn-playground",
+    "android": {
+      "package": "com.samil_gerald.rnplayground"
+    },
+    "ios": {
+      "bundleIdentifier": "com.samil-gerald.rnplayground"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-font",
+        {
+          "fonts": ["./assets/fonts/SourceCodeProRoman-Regular.ttf"]
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash.png"
+        }
+      ]
+    ]
+  }
 }

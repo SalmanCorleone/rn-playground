@@ -10,7 +10,7 @@ const palette = {
   greenDark: "#0A906E",
 
   black: "#0B0B0B",
-  white: "#F0F2F3",
+  white: "#fff",
 };
 
 const sizing = Array(100)
@@ -19,8 +19,6 @@ const sizing = Array(100)
 
 const theme = createTheme({
   colors: {
-    mainBackground: palette.white,
-    cardPrimaryBackground: palette.purplePrimary,
     ...palette,
   },
   spacing: {

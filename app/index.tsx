@@ -1,4 +1,5 @@
 import { Column, Row, Text } from "components";
+import { Link } from "expo-router";
 import React from "react";
 import { TouchableOpacity } from "react-native";
 
@@ -9,7 +10,7 @@ const itemList = [
   },
   {
     title: "Carousal",
-    route: "/carousel",
+    route: "/carousal",
   },
 ];
 
@@ -19,11 +20,15 @@ function Home(props: IProps) {
   return (
     <Column margin={"m"}>
       {itemList.map((item) => (
-        <TouchableOpacity key={item.title}>
-          <Row mb={"m"} borderWidth={1} borderRadius={5} p={4}>
-            <Text fontSize={24}>{item.title}</Text>
-          </Row>
-        </TouchableOpacity>
+        <Link key={item.title} href={item.route} asChild>
+          <TouchableOpacity>
+            <Row mb={"m"} borderRadius={5} p={4} bg="white">
+              <Text fontSize={24} color="purpleDark">
+                {item.title}
+              </Text>
+            </Row>
+          </TouchableOpacity>
+        </Link>
       ))}
     </Column>
   );
