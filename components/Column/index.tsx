@@ -1,11 +1,12 @@
-import { BoxProps, createBox } from "@shopify/restyle";
+import { createBox } from "@shopify/restyle";
+import { ComponentProps } from "react";
 import { Theme } from "utils/theme";
 
 const Box = createBox<Theme>();
 
-interface IProps extends BoxProps<Theme>, React.PropsWithChildren {}
+interface IColumnProps extends ComponentProps<typeof Box>, React.PropsWithChildren {}
 
-const Column = ({ children, ...rest }: IProps) => {
+const Column = ({ children, ...rest }: IColumnProps) => {
   return <Box {...rest}>{children}</Box>;
 };
 

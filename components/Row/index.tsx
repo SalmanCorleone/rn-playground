@@ -1,11 +1,12 @@
 import { BoxProps, createBox } from "@shopify/restyle";
+import { ComponentProps } from "react";
 import { Theme } from "utils/theme";
 
 const Box = createBox<Theme>();
 
-interface IProps extends BoxProps<Theme>, React.PropsWithChildren {}
+interface IRowProps extends ComponentProps<typeof Box>, React.PropsWithChildren {}
 
-const Row = ({ children, ...rest }: IProps) => {
+const Row = ({ children, ...rest }: IRowProps) => {
   return (
     <Box flexDirection="row" {...rest}>
       {children}
