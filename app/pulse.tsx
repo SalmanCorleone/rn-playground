@@ -2,7 +2,6 @@ import { transform } from "@babel/core";
 import { opacity, useTheme } from "@shopify/restyle";
 import { Column, Text } from "components";
 import {
-  Pressable,
   TouchableHighlight,
   TouchableNativeFeedback,
   TouchableNativeFeedbackBase,
@@ -21,6 +20,8 @@ import Animated, {
 import { Theme } from "utils/theme";
 
 const _size = 120;
+
+// TODO: do something cool for long press
 
 const Pulse = () => {
   const translateY = useSharedValue(-12);

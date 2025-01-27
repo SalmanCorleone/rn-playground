@@ -12,6 +12,10 @@ const itemList = [
     title: "Carousal",
     route: "/carousal",
   },
+  {
+    title: "Countdown",
+    route: "/countdown",
+  },
 ];
 
 interface IProps {}
