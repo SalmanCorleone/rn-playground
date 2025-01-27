@@ -5,8 +5,8 @@ import { TouchableOpacity } from "react-native";
 
 const itemList = [
   {
-    title: "Ripple Effect",
-    route: "/ripple",
+    title: "Pulse Button",
+    route: "/pulse",
   },
   {
     title: "Carousal",

@@ -10,8 +10,10 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 import Animated, {
+  useAnimatedProps,
   useAnimatedStyle,
   useSharedValue,
+  withDelay,
   withSequence,
   withSpring,
   withTiming,
@@ -20,7 +22,7 @@ import { Theme } from "utils/theme";
 
 const _size = 120;
 
-const Ripple = () => {
+const Pulse = () => {
   const translateY = useSharedValue(-12);
   const pulseScale = useSharedValue(1);
   const pulseOpacity = useSharedValue(1);
@@ -46,22 +48,39 @@ const Ripple = () => {
     };
   });
 
-  const animatedPulseStyle = useAnimatedStyle(() => {
-    return {
-      position: "absolute",
-      backgroundColor: colors.greenPrimary,
-      width: _size,
-      height: _size,
-      borderRadius: _size / 3,
-      opacity: pulseOpacity.value,
-      transform: [{ scale: pulseScale.value }],
-    };
-  });
+  const animatedPulseStyle = (index: number) =>
+    // index was considered for a staggering effect
+    // only way to stagger is either : create a new component for each item
+    // or simply define separate shared values for each item
+    useAnimatedStyle(() => {
+      return {
+        opacity: pulseOpacity.value,
+        transform: [{ scale: pulseScale.value }],
+      };
+    });
 
   return (
     <Column flex={1} justifyContent="center" alignItems="center">
       <Column width={_size} height={_size} bg="greenPrimary" position="absolute" borderRadius={_size / 3} />
-      <Animated.View style={animatedPulseStyle} />
+      {Array(3)
+        .fill(0)
+        .map((_, index) => (
+          <Animated.View
+            key={index}
+            style={[
+              {
+                position: "absolute",
+                backgroundColor: colors.greenPrimary,
+                borderWidth: 2,
+                borderColor: colors.greenPrimary,
+                width: _size,
+                height: _size,
+                borderRadius: _size / 3,
+              },
+              animatedPulseStyle(index),
+            ]}
+          />
+        ))}
 
       <Column width={_size} height={_size} bg="greenPrimary" position="absolute" borderRadius={_size / 3} />
       <Animated.View style={animatedButtonStyle}>
@@ -83,4 +102,4 @@ const Ripple = () => {
   );
 };
 
-export default Ripple;
+export default Pulse;
