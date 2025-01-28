@@ -2,6 +2,7 @@
   "dependencies": {
     "@expo/metro-runtime": "~4.0.0",
     "@shopify/restyle": "^2.4.4",
+    "axios": "^1.7.9",
     "expo": "^52.0.16",
     "expo-constants": "~17.0.4",
     "expo-dev-client": "~5.0.10",

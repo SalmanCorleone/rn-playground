@@ -10,6 +10,8 @@ const palette = {
   greenDark: "#0A906E",
 
   black: "#0B0B0B",
+  slateGray: "#7D8491",
+  darkGray: "#1D1616",
   white: "#fff",
 };
 
