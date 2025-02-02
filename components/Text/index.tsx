@@ -1,9 +1,13 @@
 import { createRestyleComponent, createText, createVariant, TextProps, VariantProps } from "@shopify/restyle";
+import { ComponentProps } from "react";
 import { Theme } from "utils/theme";
 
 const Txt = createText<Theme>();
 
-const TextComponent = createRestyleComponent<VariantProps<Theme, "textVariants"> & React.ComponentProps<typeof Txt>, Theme>(
+const TextComponent = createRestyleComponent<
+  VariantProps<Theme, "textVariants"> & React.ComponentProps<typeof Txt>,
+  Theme
+>(
   [
     createVariant({
       themeKey: "textVariants",
@@ -12,7 +16,7 @@ const TextComponent = createRestyleComponent<VariantProps<Theme, "textVariants">
   Txt
 );
 
-interface IProps extends TextProps<Theme>, React.PropsWithChildren {}
+interface IProps extends ComponentProps<typeof TextComponent>, React.PropsWithChildren {}
 
 const Text = ({ children, ...rest }: IProps) => {
   return (

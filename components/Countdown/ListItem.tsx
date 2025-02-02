@@ -53,7 +53,9 @@ const ListItem = ({ index, activeIndex }: IListItemProps) => {
       }}
       key={index}
     >
-      <Animated.Text style={[{ fontSize: 32, color: "white" }, textAnim]}>{(index + 1) * 5}</Animated.Text>
+      <Animated.Text style={[{ fontSize: 32, color: "white", fontFamily: "SourceCodeProRoman-Regular" }, textAnim]}>
+        {(index + 1) * 5}
+      </Animated.Text>
     </Animated.View>
   );
 };
