@@ -4,13 +4,10 @@ import ListItem from "components/Countdown/ListItem";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { TouchableOpacity } from "react-native";
 import Animated, {
-  FadeIn,
-  FadeInDown,
   FadeOutRight,
   useAnimatedStyle,
   useSharedValue,
   withDelay,
-  withSpring,
   withTiming,
 } from "react-native-reanimated";
 import { _countdown_list_item_width, _height, _width } from "utils/const";
@@ -20,7 +17,6 @@ import { Theme } from "utils/theme";
 const Countdown = () => {
   const buttonY = useSharedValue(0);
   const activeIndex = useSharedValue(0);
-  // const counterOpacity = useSharedValue(0);
   const scrollViewOpacity = useSharedValue(1);
   const counterFluidY = useSharedValue(0);
   const counterFluidOpacity = useSharedValue(1);
@@ -44,7 +40,6 @@ const Countdown = () => {
     if (!isCounterActive) return;
     const stepHeight = _height / initialCount.current;
     const heightToDrop = stepHeight * (initialCount.current - count);
-    // console.log({ count, stepHeight, heightToDrop, _height }, "........");
     counterFluidY.value = withTiming(heightToDrop, { duration: 300 });
   }, [count, isCounterActive]);
 
@@ -54,7 +49,6 @@ const Countdown = () => {
     buttonY.value = withTiming(_height / 3, { duration: 300 });
     initialCount.current = (activeIndex.value + 1) * 5;
     scrollViewOpacity.value = withTiming(0, { duration: 300 });
-    // counterOpacity.value = withTiming(1, { duration: 300 });
   }, []);
 
   const stopCounter = useCallback(() => {
@@ -95,40 +89,27 @@ const Countdown = () => {
   });
 
   return (
-    <Column
-      flex={1}
-      bg="darkGray"
-      position="relative"
-
-      // justifyContent="space-between"
-    >
+    <Column flex={1} bg="darkGray" position="relative">
       {/* Counter fluid */}
-      {/* {isCounterActive && ( */}
-      <Animated.View
-        // entering={FadeInDown.duration(300)}
-        style={[
-          {
-            width: _width,
-            height: _height,
-            backgroundColor: colors.redPrimary,
-            position: "absolute",
-            // top: 0,
-            // left: 0,
-          },
-          counterFluidAnim,
-        ]}
-      ></Animated.View>
-      {/* )} */}
+      {isCounterActive && (
+        <Animated.View
+          style={[
+            {
+              width: _width,
+              height: _height,
+              backgroundColor: colors.redPrimary,
+              position: "absolute",
+            },
+            counterFluidAnim,
+          ]}
+        ></Animated.View>
+      )}
 
       {/* Countdown text */}
       <Column flex={1}>
         <Row position="absolute" justifyContent="center" alignItems="center" width={"100%"} height={"100%"}>
           {isCounterActive && (
-            <Animated.View
-              // style={[counterAnim]}
-              entering={FadeIn.duration(300)}
-              // exiting={FadeIn.duration(300)}
-            >
+            <Animated.View>
               <Text fontSize={32} color="white" style={{ transform: [{ scale: 2 }] }}>
                 {count}
               </Text>
