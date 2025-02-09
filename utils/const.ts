@@ -9,3 +9,4 @@ export const _width = Dimensions.get("window").width;
 export const _height = Dimensions.get("window").height - headerHeight;
 
 export const _countdown_list_item_width = _width / 3;
+export const _carousal_item_width = _width / 1.5;

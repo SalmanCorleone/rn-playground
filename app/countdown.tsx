@@ -25,6 +25,8 @@ const Countdown = () => {
   const [count, setCount] = useState(5);
   const initialCount = useRef<number>(5);
 
+  console.log({ activeIndex: activeIndex.value });
+
   useInterval(
     () => {
       setCount((c) => {

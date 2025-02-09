@@ -1,4 +1,5 @@
 import Column from "components/Column";
+import { useEffect } from "react";
 import Animated, {
   interpolate,
   SharedValue,
@@ -7,7 +8,7 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
-import { _height, _width } from "utils/const";
+import { _carousal_item_width, _height, _width } from "utils/const";
 
 interface IAnimatedImageProps {
   index: number;
@@ -16,16 +17,20 @@ interface IAnimatedImageProps {
 }
 
 const AnimatedImage = ({ index, uri, scrollX }: IAnimatedImageProps) => {
-  const activeIndex = useDerivedValue(() => Math.round(scrollX.value / _width), [scrollX]);
   const rotation = useSharedValue(0);
   const scale = useSharedValue(1);
 
-  scale.value = interpolate(activeIndex.value, [index - 1, index, index + 1], [1, 0.8, 1], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
+  const containerAnim = useAnimatedStyle(() => {
+    scale.value = interpolate(
+      scrollX.value,
+      [_carousal_item_width * (index - 1), _carousal_item_width * index, _carousal_item_width * (index + 1)],
+      [0.8, 1, 0.8],
+      {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      }
+    );
 
-  const animatedStyle = useAnimatedStyle(() => {
     return {
       transform: [
         {
@@ -35,11 +40,39 @@ const AnimatedImage = ({ index, uri, scrollX }: IAnimatedImageProps) => {
     };
   });
 
+  const imageAnim = useAnimatedStyle(() => {
+    rotation.value = interpolate(
+      scrollX.value,
+      [_carousal_item_width * (index - 1), _carousal_item_width * index, _carousal_item_width * (index + 1)],
+      [10, 0, -15],
+      {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      }
+    );
+    return {
+      transform: [{ rotate: `${rotation.value}deg` }, { scale: 1.5 }],
+    };
+  });
+
   return (
     <Animated.View
-      style={{ width: _width - 64, height: _height / 1.5, borderRadius: 32, margin: 32, overflow: "hidden" }}
+      style={[
+        {
+          width: _carousal_item_width,
+          height: _height / 1.5,
+          borderRadius: 32,
+          overflow: "hidden",
+          borderWidth: 1,
+        },
+        containerAnim,
+      ]}
     >
-      <Animated.Image source={{ uri }} resizeMode={"cover"} style={[{ flex: 1 }, animatedStyle]} />
+      <Animated.Image
+        source={{ uri }}
+        resizeMode={"cover"}
+        style={[{ flex: 1, transform: [{ scale: 1.5 }] }, imageAnim]}
+      />
     </Animated.View>
   );
 };
