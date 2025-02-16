@@ -1,6 +1,8 @@
 import Column from "components/Column";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { ActivityIndicator } from "react-native";
 import Animated, {
+  FadeIn,
   interpolate,
   SharedValue,
   useAnimatedStyle,
@@ -14,9 +16,11 @@ interface IAnimatedImageProps {
   index: number;
   uri: string;
   scrollX: SharedValue<number>;
+  onImageLoad: () => void;
+  showLoader: boolean;
 }
 
-const AnimatedImage = ({ index, uri, scrollX }: IAnimatedImageProps) => {
+const AnimatedImage = ({ index, uri, scrollX, onImageLoad, showLoader }: IAnimatedImageProps) => {
   const rotation = useSharedValue(0);
   const scale = useSharedValue(1);
 
@@ -63,7 +67,9 @@ const AnimatedImage = ({ index, uri, scrollX }: IAnimatedImageProps) => {
           height: _height / 1.5,
           borderRadius: 32,
           overflow: "hidden",
-          borderWidth: 1,
+          borderWidth: 2,
+          borderColor: "white",
+          position: "relative",
         },
         containerAnim,
       ]}
@@ -72,7 +78,26 @@ const AnimatedImage = ({ index, uri, scrollX }: IAnimatedImageProps) => {
         source={{ uri }}
         resizeMode={"cover"}
         style={[{ flex: 1, transform: [{ scale: 1.5 }] }, imageAnim]}
+        onLoadEnd={onImageLoad}
+        // onLoadEnd={() => setImageLoaded(true)}
+        // onLoad={onImageLoad}
+        // defaultSource={require("assets/images/splash.png")}
+        entering={FadeIn}
       />
+      {showLoader && (
+        <Column
+          position="absolute"
+          top={0}
+          left={0}
+          right={0}
+          bottom={0}
+          justifyContent="center"
+          alignItems="center"
+          bg="white"
+        >
+          <ActivityIndicator size={40} />
+        </Column>
+      )}
     </Animated.View>
   );
 };

@@ -1,22 +1,24 @@
 import { Column } from "components";
+import AnimatedBackgroundImage from "components/Carousal/AnimatedBackgroundImage";
 import AnimatedImage from "components/Carousal/AnimatedImage";
-import { useState } from "react";
-import { StyleSheet } from "react-native";
-import Animated, { useAnimatedScrollHandler, useAnimatedStyle, useSharedValue } from "react-native-reanimated";
+import { useCallback, useEffect, useState } from "react";
+import { ActivityIndicator, StyleSheet } from "react-native";
+import Animated, { useAnimatedScrollHandler, useSharedValue } from "react-native-reanimated";
 import { _carousal_item_width, _width } from "utils/const";
 
 const _images = [
-  "https://picsum.photos/id/0/5000/3333",
-  "https://picsum.photos/id/1/5000/3333",
-  "https://picsum.photos/id/2/5000/3333",
-  "https://picsum.photos/id/3/5000/3333",
-  "https://picsum.photos/id/4/5000/3333",
+  "https://picsum.photos/id/50/5000/3333",
+  "https://picsum.photos/id/10/5000/3333",
+  "https://picsum.photos/id/20/5000/3333",
+  "https://picsum.photos/id/30/5000/3333",
+  "https://picsum.photos/id/40/5000/3333",
 ];
 
 const Carousal = () => {
   const offsetX = useSharedValue(0);
   // const [images, setImages] = useState<string[]>(_images);
   // const [loading, setLoading] = useState(true);
+  const [imageReadyCount, setImageReadyCount] = useState(0);
 
   // useEffect(() => {
   //   const fetchImages = async () => {
@@ -35,18 +37,24 @@ const Carousal = () => {
     },
   });
 
-  // if (loading)
-  //   return (
-  //     <Column flex={1} justifyContent="center" alignItems="center">
-  //       <ActivityIndicator size={40} />
-  //     </Column>
-  //   );
+  const onImageLoad = useCallback(() => {
+    setImageReadyCount((prev) => prev + 1);
+  }, []);
 
   return (
     <Column style={StyleSheet.absoluteFill}>
-      {/* <Animated.View
-        style={[{ width: 40, height: 40, borderRadius: 40, borderWidth: 1, backgroundColor: "red" }, animBox]}
-      /> */}
+      <Column style={StyleSheet.absoluteFill}>
+        {_images.map((img, idx) => (
+          <AnimatedBackgroundImage
+            key={img}
+            src={img}
+            scrollX={offsetX}
+            index={idx}
+            showLoader={imageReadyCount < _images.length * 2}
+            onImageLoad={onImageLoad}
+          />
+        ))}
+      </Column>
       <Animated.ScrollView
         horizontal={true}
         showsHorizontalScrollIndicator={false}
@@ -62,7 +70,14 @@ const Carousal = () => {
         }}
       >
         {_images.map((imageUrl, index) => (
-          <AnimatedImage index={index} key={index} uri={imageUrl} scrollX={offsetX} />
+          <AnimatedImage
+            index={index}
+            key={index}
+            uri={imageUrl}
+            scrollX={offsetX}
+            onImageLoad={onImageLoad}
+            showLoader={imageReadyCount < _images.length * 2}
+          />
         ))}
       </Animated.ScrollView>
     </Column>
