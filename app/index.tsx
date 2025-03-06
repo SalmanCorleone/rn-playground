@@ -16,6 +16,10 @@ const itemList = [
     title: "Countdown",
     route: "/countdown",
   },
+  {
+    title: "Fluid Loader",
+    route: "/fluidLoader",
+  },
 ];
 
 interface IProps {}

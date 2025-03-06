@@ -23,6 +23,12 @@
         {
           "image": "./assets/images/splash.png"
         }
+      ],
+      [
+        "expo-custom-assets",
+        {
+          "assetsPaths": ["./assets/rive/"]
+        }
       ]
     ]
   }

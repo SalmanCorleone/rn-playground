@@ -1,18 +1,9 @@
-import { transform } from "@babel/core";
-import { opacity, useTheme } from "@shopify/restyle";
+import { useTheme } from "@shopify/restyle";
 import { Column, Text } from "components";
-import {
-  TouchableHighlight,
-  TouchableNativeFeedback,
-  TouchableNativeFeedbackBase,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-} from "react-native";
+import { TouchableWithoutFeedback } from "react-native";
 import Animated, {
-  useAnimatedProps,
   useAnimatedStyle,
   useSharedValue,
-  withDelay,
   withSequence,
   withSpring,
   withTiming,
