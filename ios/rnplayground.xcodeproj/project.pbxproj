@@ -15,9 +15,9 @@
 		96905EF65AED1B983A6B3ABC /* libPods-rnplayground.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-rnplayground.a */; };
 		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		C4B5FECB603845DE9FEC283F /* fluid_loader_2.riv in Resources */ = {isa = PBXBuildFile; fileRef = 164E83DF62424E5F9EEC10D7 /* fluid_loader_2.riv */; };
 		C70B3F3025524C89A3CEA671 /* SourceCodeProRoman-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13D97842CDD148A7A39E2B44 /* SourceCodeProRoman-Regular.ttf */; };
 		DC96A79EC8FC4F5C90756648 /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1743BBEBC91540668F335F80 /* noop-file.swift */; };
+		E6B986D0189D45AB943A6395 /* fluid_loader.riv in Resources */ = {isa = PBXBuildFile; fileRef = 800D9301B3BC48F48F578E11 /* fluid_loader.riv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +28,6 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = rnplayground/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = rnplayground/main.m; sourceTree = "<group>"; };
 		13D97842CDD148A7A39E2B44 /* SourceCodeProRoman-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SourceCodeProRoman-Regular.ttf"; path = "../assets/fonts/SourceCodeProRoman-Regular.ttf"; sourceTree = "<group>"; };
-		164E83DF62424E5F9EEC10D7 /* fluid_loader_2.riv */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = fluid_loader_2.riv; path = "/Users/salman/Documents/rn-playground/ios/Assets/fluid_loader_2.riv"; sourceTree = "<group>"; };
 		1743BBEBC91540668F335F80 /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "rnplayground/noop-file.swift"; sourceTree = "<group>"; };
 		58EEBF8E8E6FB1BC6CAF49B5 /* libPods-rnplayground.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rnplayground.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C2E3173556A471DD304B334 /* Pods-rnplayground.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnplayground.debug.xcconfig"; path = "Target Support Files/Pods-rnplayground/Pods-rnplayground.debug.xcconfig"; sourceTree = "<group>"; };
@@ -39,6 +38,7 @@
 		D8BFB11B24FBA97646884F95 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = rnplayground/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-rnplayground/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		800D9301B3BC48F48F578E11 /* fluid_loader.riv */ = {isa = PBXFileReference; name = "fluid_loader.riv"; path = "/Users/salman/Documents/rn-playground/ios/Assets/fluid_loader.riv"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +104,7 @@
 				D65327D7A22EEC0BE12398D9 /* Pods */,
 				D7E4C46ADA2E9064B798F356 /* ExpoModulesProviders */,
 				0A740DAAB5754ECD99E97880 /* Resources */,
-				164E83DF62424E5F9EEC10D7 /* fluid_loader_2.riv */,
+				800D9301B3BC48F48F578E11 /* fluid_loader.riv */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -219,7 +219,7 @@
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
 				C70B3F3025524C89A3CEA671 /* SourceCodeProRoman-Regular.ttf in Resources */,
 				5A543E6BD4C3588C5505A7CE /* PrivacyInfo.xcprivacy in Resources */,
-				C4B5FECB603845DE9FEC283F /* fluid_loader_2.riv in Resources */,
+				E6B986D0189D45AB943A6395 /* fluid_loader.riv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,11 +384,11 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.samil-gerald.rnplayground";
-				PRODUCT_NAME = rnplayground;
+				PRODUCT_NAME = "rnplayground";
 				SWIFT_OBJC_BRIDGING_HEADER = "rnplayground/rnplayground-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -415,10 +415,10 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.samil-gerald.rnplayground";
-				PRODUCT_NAME = rnplayground;
+				PRODUCT_NAME = "rnplayground";
 				SWIFT_OBJC_BRIDGING_HEADER = "rnplayground/rnplayground-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -478,10 +478,7 @@
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/swift\"$(inherited)\"";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -536,10 +533,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/swift\"$(inherited)\"";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

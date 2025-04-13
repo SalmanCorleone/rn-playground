@@ -5,6 +5,10 @@ const palette = {
   purplePrimary: "#5A31F4",
   purpleDark: "#3F22AB",
 
+  blueDark: "#09122C",
+  bluePrimary: "#344CB7",
+  blueLight: "#A1E3F9",
+
   redLight: "#E195AB",
   redPrimary: "#BE3144",
 

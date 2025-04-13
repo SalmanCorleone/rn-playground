@@ -91,7 +91,7 @@ const Countdown = () => {
   });
 
   return (
-    <Column flex={1} bg="darkGray" position="relative">
+    <Column flex={1} bg="blueDark" position="relative">
       {/* Counter fluid */}
       {isCounterActive && (
         <Animated.View
